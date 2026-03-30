@@ -6,13 +6,14 @@
 <title>Хямд UC Худалдан авах</title>
 
 <style>
-/* Base Styles */
 * { box-sizing: border-box; margin:0; padding:0; }
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background: linear-gradient(120deg,#0f0c29,#302b63,#24243e);
     color: #f0f0f0;
 }
+
 header {
     text-align: center;
     padding: 25px 15px;
@@ -22,7 +23,6 @@ header {
     text-shadow: 0 0 10px #0ff,0 0 20px #0ff;
 }
 
-/* Container */
 .container {
     max-width: 800px;
     margin: 30px auto;
@@ -32,16 +32,15 @@ header {
     box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
-/* Titles */
 h2, h3 { margin-bottom: 15px; color: #0ff; }
 
-/* UC Buttons */
 .uc-options {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 25px;
 }
+
 .uc-options button {
     flex: 1 1 40%;
     display: flex;
@@ -55,100 +54,67 @@ h2, h3 { margin-bottom: 15px; color: #0ff; }
     background: linear-gradient(45deg,#0ff,#00f);
     color: #fff;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
+
 .uc-options button:hover {
     transform: scale(1.05);
-    background: linear-gradient(45deg,#00f,#0ff);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
 }
+
 .uc-icon {
     width: 28px;
     height: 28px;
     margin-right: 10px;
-    vertical-align: middle;
 }
 
-/* Payment Info */
-.payment-info {
-    background: rgba(50,50,80,0.9);
+.payment-info, .help, .comments {
+    margin-top: 20px;
     padding: 20px;
     border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: inset 0 0 10px #0ff;
-}
-.payment-info p { margin: 8px 0; font-size: 16px; }
-
-/* Help Section */
-.help {
-    background: rgba(60,60,100,0.8);
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: inset 0 0 8px #0ff;
-}
-
-/* Comments */
-.comments {
     background: rgba(40,40,70,0.9);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: inset 0 0 8px #0ff;
 }
-textarea {
+
+textarea, input, select {
     width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    resize: vertical;
+    padding: 10px;
     margin-bottom: 10px;
-    font-size: 16px;
+    border-radius: 6px;
+    border: none;
 }
+
 button.submit {
     background: linear-gradient(45deg,#0f0,#0c9);
-    padding: 15px 20px;
+    padding: 12px;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s ease;
 }
-button.submit:hover {
-    transform: scale(1.05);
-    background: linear-gradient(45deg,#0c9,#0f0);
+
+.comment {
+    background: rgba(30,30,50,0.6);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
 }
+
 .success {
     display: none;
     background: #0f0;
     color: #000;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 15px;
-    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
     text-align: center;
 }
 
-/* Individual Comment */
-.comment {
-    background: rgba(30,30,50,0.6);
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 15px;
-    box-shadow: inset 0 0 5px #0ff;
-}
-
-/* Responsive */
-@media(max-width:600px) {
+@media(max-width:600px){
     .uc-options { flex-direction: column; }
-    .uc-options button { flex: 1 1 100%; }
 }
 </style>
 </head>
 
 <body>
+
 <header>Хямд UC Худалдан авах</header>
 
 <div class="container">
@@ -157,23 +123,23 @@ button.submit:hover {
 
 <div class="uc-options">
     <button onclick="selectUC(60)">
-        <img src="ucicon.jpg" alt="UC" class="ucicon">
-        60 UC 2,000₮
+        <img src="ucicon.jpg" class="uc-icon"> 60 UC 2,000₮
     </button>
+
     <button onclick="selectUC(325)">
-        <img src="ucicon.jpg" alt="UC" class="ucicon">
-        325 UC 9,000₮
+        <img src="ucicon.jpg" class="uc-icon"> 325 UC 9,000₮
     </button>
+
     <button onclick="selectUC(660)">
-        <img src="ucicon.jpg" alt="UC" class="ucicon">
-        660 UC 35,000₮
+        <img src="ucicon.jpg" class="uc-icon"> 660 UC 35,000₮
     </button>
+
     <button onclick="selectUC(1800)">
-        <img src="ucicon.jpg" alt="UC" class="ucicon">
-        1,800 UC 42,000₮
-        <button onclick="selectUC(3850)">
-        <img src="ucicon.jpg" alt="UC" class="ucicon">
-        3,850 UC 83,000₮
+        <img src="ucicon.jpg" class="uc-icon"> 1,800 UC 42,000₮
+    </button>
+
+    <button onclick="selectUC(3850)">
+        <img src="ucicon.jpg" class="uc-icon"> 3,850 UC 83,000₮
     </button>
 </div>
 
@@ -184,16 +150,14 @@ button.submit:hover {
     <p><strong>IBAN:</strong> MN490005005466571864</p>
     <p><strong>Нэр:</strong> Тэмүүлэн</p>
     <p><strong>Гүйлгээний утга:</strong> <span id="transaction-text">UC хэмжээ (PUBG ID)</span></p>
-    <p>Бид таны мөнгийг хүлээн авмагц UC-ээ таны ID-д цэнэглэнэ.</p>
 </div>
 
 <div class="help">
     <h3>Тусламж / Report</h3>
-    <p>Асуудал гарсан бол доорх формоор бидэнд мэдэгдэнэ үү.</p>
 
-    <input type="text" id="report-id" placeholder="PUBG ID" style="width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:none;">
-
-    <select id="report-type" style="width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:none;">
+    <input id="report-id" placeholder="PUBG ID">
+    
+    <select id="report-type">
         <option value="">Асуудал сонгох</option>
         <option>UC орж ирээгүй</option>
         <option>Буруу хэмжээ ирсэн</option>
@@ -201,21 +165,16 @@ button.submit:hover {
         <option>Бусад</option>
     </select>
 
-    <textarea id="report-text" placeholder="Дэлгэрэнгүй тайлбар бичнэ үү..." rows="3"
-    style="width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:none;"></textarea>
+    <textarea id="report-text" placeholder="Тайлбар..."></textarea>
 
-    <button onclick="sendReport()" style="width:100%;padding:12px;background:#ff4444;color:#fff;border:none;border-radius:8px;font-weight:bold;">
-        Report илгээх
-    </button>
+    <button onclick="sendReport()">Report илгээх</button>
 
-    <div id="report-msg" style="display:none;margin-top:10px;padding:10px;background:#0f0;color:#000;border-radius:6px;text-align:center;">
-        Амжилттай илгээгдлээ!
-    </div>
+    <div id="report-msg" class="success"></div>
 </div>
 
 <div class="comments">
     <h3>REVIEW'S</h3>
-    <div id="comment-list">
+
         <div class="comment"><p><strong>user15855:</strong> sssaafffeee+++</p></div>
         <div class="comment"><p><strong>user16843:</strong> найдвартай</p></div>
         <div class="comment"><p><strong>user06311:</strong> goyshdee</p></div>
@@ -231,136 +190,70 @@ button.submit:hover {
         <div class="comment"><p><strong>user13400:</strong> safe</p></div>
         <div class="comment"><p><strong>user79732:</strong> ymr hymd yumbee</p></div>
         <div class="comment"><p><strong>user88942:</strong> hi uc awlaa</p></div>
-    </div>
-    <textarea id="comment" placeholder="Энд бичнэ үү..." rows="4"></textarea>
-    <button class="submit" onclick="submitComment()">Сэтгэгдэл бичих</button>
-    <div class="success" id="success-msg">Таны сэтгэгдэл бичигдсэн!</div>
+
+    <textarea id="comment" placeholder="Сэтгэгдэл..."></textarea>
+    <button class="submit" onclick="submitComment()">Илгээх</button>
+
+    <div class="success" id="success-msg">Амжилттай!</div>
 </div>
 
 </div>
 
 <script>
 
-// UC сонгох функц
 function selectUC(amount) {
     let userId = "user15855";
     document.getElementById("transaction-text").innerText =
         amount + " UC (" + userId + ")";
-    alert(amount + " UC сонгогдлоо! та доод цэснээс төлбөрөө хийнэ үү");
+    alert(amount + " UC сонгогдлоо!");
 }
 
-// Сэтгэгдэл нэмэх функц
 function submitComment() {
+    let pubgId = prompt("PUBG ID:");
 
-    // PUBG ID асуух
-    let pubgId = prompt("PUBG ID аа оруулна уу:");
-
-    if(pubgId === null || pubgId.trim() === "") {
-        alert("PUBG ID оруулаагүй байна!");
+    if(!pubgId) {
+        alert("ID оруулна уу!");
         return;
     }
 
-    // Loading message
-    let loadingMsg = document.createElement("div");
-    loadingMsg.innerText = "Шалгаж байна...";
-    loadingMsg.style.background = "#222";
-    loadingMsg.style.color = "#0f0";
-    loadingMsg.style.padding = "10px";
-    loadingMsg.style.marginTop = "10px";
-    loadingMsg.style.borderRadius = "8px";
-    loadingMsg.style.textAlign = "center";
+    alert("Шалгаж байна...");
 
-    document.querySelector(".comments").appendChild(loadingMsg);
-
-    setTimeout(function() {
-        loadingMsg.remove();
+    setTimeout(() => {
         alert("Та UC аваагүй байна!");
-    }, 2000);
+    }, 1500);
 }
 
-// Report функц
+/* ✅ UPDATED REPORT FUNCTION */
 function sendReport() {
-    let id = document.getElementById("report-id").value.trim();
+
+    // ID-г заавал prompt-оор асууна
+    let id = prompt("PUBG ID оруулна уу:");
+
     let type = document.getElementById("report-type").value;
     let text = document.getElementById("report-text").value.trim();
 
-    if(id === "" || type === "" || text === "") {
+    if(!id || !type || !text) {
         alert("Бүх талбарыг бөглөнө үү!");
         return;
     }
 
     let msg = document.getElementById("report-msg");
     msg.style.display = "block";
+    msg.innerText = "Шалгаж байна...";
 
-    document.getElementById("report-id").value = "";
-    document.getElementById("report-type").value = "";
-    document.getElementById("report-text").value = "";
+    setTimeout(() => {
+        msg.innerText = "Та UC аваагүй байна!";
+    }, 1500);
 
-    setTimeout(function(){
+    setTimeout(() => {
         msg.style.display = "none";
     }, 3000);
-}
 
-<script>
-
-// UC сонгох функц
-function selectUC(amount) {
-    let userId = "user15855";
-    document.getElementById("transaction-text").innerText =
-        amount + " UC (" + userId + ")";
-    alert(amount + " UC сонгогдлоо! та доод цэснээс төлбөрөө хийнэ үү");
-}
-
-// Сэтгэгдэл нэмэх функц
-function submitComment() {
-
-    // PUBG ID асуух
-    let pubgId = prompt("PUBG ID аа оруулна уу:");
-
-    if(pubgId === null || pubgId.trim() === "") {
-        alert("PUBG ID оруулаагүй байна!");
-        return;
-    }
-
-    // Loading message
-    let loadingMsg = document.createElement("div");
-    loadingMsg.innerText = "Шалгаж байна...";
-    loadingMsg.style.background = "#222";
-    loadingMsg.style.color = "#0f0";
-    loadingMsg.style.padding = "10px";
-    loadingMsg.style.marginTop = "10px";
-    loadingMsg.style.borderRadius = "8px";
-    loadingMsg.style.textAlign = "center";
-
-    document.querySelector(".comments").appendChild(loadingMsg);
-
-    setTimeout(function() {
-        loadingMsg.remove();
-        alert("Та UC аваагүй байна!");
-    }, 2000);
-}
-
-// Report функц
-function sendReport() {
-    let id = document.getElementById("report-id").value.trim();
-    let type = document.getElementById("report-type").value;
-    let text = document.getElementById("report-text").value.trim();
-
-    if(id === "" || type === "" || text === "") {
-        alert("Бүх талбарыг бөглөнө үү!");
-        return;
-    }
-
-    let msg = document.getElementById("report-msg");
-    msg.style.display = "block";
-
-    document.getElementById("report-id").value = "";
     document.getElementById("report-type").value = "";
     document.getElementById("report-text").value = "";
-
-    setTimeout(function(){
-        msg.style.display = "none";
-    }, 3000);
 }
 
 </script>
+
+</body>
+</html>
