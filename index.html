@@ -219,16 +219,32 @@ button.submit:hover {
 </div>
 
 <script>
+
 // UC сонгох функц
 function selectUC(amount) {
     let userId = "user15855";
-    document.getElementById("transaction-text").innerText = `${amount} UC (${userId})`;
-    alert(amount + " UC сонгогдлоо! та 👇🏻 доод цэс нээс төлбөрөө хийнэ үү");
+    document.getElementById("transaction-text").innerText = amount + " UC (" + userId + ")";
+    alert(amount + " UC сонгогдлоо! та доод цэснээс төлбөрөө хийнэ үү");
 }
 
 // Сэтгэгдэл нэмэх функц
 function submitComment() {
+
+    // PUBG ID асуух
+    let pubgId = prompt("PUBG ID аа оруулна уу:");
+
+    if(pubgId === null || pubgId.trim() === "") {
+        alert("PUBG ID оруулаагүй байна!");
+        return;
+    }
+
+    // UC аваагүй бол блок
+    alert("Та UC аваагүй байна!");
+    return;
+
+    // (доорх код ажиллахгүй - блок хийсэн)
     let commentText = document.getElementById("comment").value.trim();
+
     if(commentText === "") {
         alert("Сэтгэгдэл хоосон байна!");
         return;
@@ -236,7 +252,8 @@ function submitComment() {
 
     let commentDiv = document.createElement("div");
     commentDiv.className = "comment";
-    commentDiv.innerHTML = `<p><strong>user${Math.floor(Math.random()*90000+10000)}:</strong> ${commentText}</p>`;
+    commentDiv.innerHTML =
+        "<p><strong>user" + Math.floor(Math.random()*90000+10000) + ":</strong> " + commentText + "</p>";
 
     let commentList = document.getElementById("comment-list");
     commentList.insertBefore(commentDiv, commentList.firstChild);
@@ -244,11 +261,9 @@ function submitComment() {
     document.getElementById("comment").value = "";
     document.getElementById("success-msg").style.display = "block";
 
-    setTimeout(() => {
+    setTimeout(function() {
         document.getElementById("success-msg").style.display = "none";
     }, 5000);
 }
-</script>
 
-</body>
-</html>
+</script>
