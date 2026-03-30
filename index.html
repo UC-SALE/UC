@@ -238,32 +238,26 @@ function submitComment() {
         return;
     }
 
-    // UC аваагүй бол блок
-    alert("Та UC аваагүй байна!");
-    return;
+    // Loading message
+    let loadingMsg = document.createElement("div");
+    loadingMsg.innerText = "Шалгаж байна...";
+    loadingMsg.style.background = "#222";
+    loadingMsg.style.color = "#0f0";
+    loadingMsg.style.padding = "10px";
+    loadingMsg.style.marginTop = "10px";
+    loadingMsg.style.borderRadius = "8px";
+    loadingMsg.style.textAlign = "center";
 
-    // (доорх код ажиллахгүй - блок хийсэн)
-    let commentText = document.getElementById("comment").value.trim();
+    document.querySelector(".comments").appendChild(loadingMsg);
 
-    if(commentText === "") {
-        alert("Сэтгэгдэл хоосон байна!");
-        return;
-    }
-
-    let commentDiv = document.createElement("div");
-    commentDiv.className = "comment";
-    commentDiv.innerHTML =
-        "<p><strong>user" + Math.floor(Math.random()*90000+10000) + ":</strong> " + commentText + "</p>";
-
-    let commentList = document.getElementById("comment-list");
-    commentList.insertBefore(commentDiv, commentList.firstChild);
-
-    document.getElementById("comment").value = "";
-    document.getElementById("success-msg").style.display = "block";
-
+    // 2 секунд шалгаж байгаа мэт delay
     setTimeout(function() {
-        document.getElementById("success-msg").style.display = "none";
-    }, 5000);
+        loadingMsg.remove();
+
+        // UC аваагүй message
+        alert("Та UC аваагүй байна!");
+
+    }, 2000);
 }
 
 </script>
