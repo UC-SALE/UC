@@ -43,20 +43,30 @@ h2, h3 { margin-bottom: 15px; color: #0ff; }
 }
 .uc-options button {
     flex: 1 1 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 18px;
     font-weight: bold;
     background: linear-gradient(45deg,#0ff,#00f);
-    color: #000;
+    color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 .uc-options button:hover {
     transform: scale(1.05);
     background: linear-gradient(45deg,#00f,#0ff);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+.uc-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 /* --- Payment Info --- */
@@ -144,10 +154,22 @@ button.submit:hover {
 
     <h2>💎 UC хэмжээг сонгоно уу:</h2>
     <div class="uc-options">
-        <button onclick="selectUC(60)">60 UC</button>
-        <button onclick="selectUC(100)">100 UC</button>
-        <button onclick="selectUC(325)">325 UC</button>
-        <button onclick="selectUC(660)">660 UC</button>
+        <button onclick="selectUC(60)">
+            <img src="images/uc-icon.png" alt="UC" class="uc-icon">
+            60 UC
+        </button>
+        <button onclick="selectUC(100)">
+            <img src="images/uc-icon.png" alt="UC" class="uc-icon">
+            100 UC
+        </button>
+        <button onclick="selectUC(325)">
+            <img src="images/uc-icon.png" alt="UC" class="uc-icon">
+            325 UC
+        </button>
+        <button onclick="selectUC(660)">
+            <img src="images/uc-icon.png" alt="UC" class="uc-icon">
+            660 UC
+        </button>
     </div>
 
     <div class="payment-info">
@@ -168,7 +190,6 @@ button.submit:hover {
     <div class="comments">
         <h3>💬 Худалдан авагчийн сэтгэгдэл</h3>
         <div id="comment-list">
-            <!-- Жинхэнэ сэтгэгдэлүүд -->
             <div class="comment"><p><strong>user15855:</strong> Wow, үнэхээр хурдан цэнэглэгдлээ! Safe+++ 👍</p></div>
             <div class="comment"><p><strong>gamer_kh:</strong> UC авахад ямар ч асуудалгүй, үнэхээр сайн байна. Vneheer sain 🌟</p></div>
             <div class="comment"><p><strong>player88:</strong> Түргэн, найдвартай, зөвхөн энэ сайтаар авна. 💯</p></div>
@@ -199,12 +220,10 @@ function submitComment() {
         return;
     }
 
-    // Шинэ сэтгэгдэл HTML үүсгэх
     let commentDiv = document.createElement("div");
     commentDiv.className = "comment";
     commentDiv.innerHTML = `<p><strong>user${Math.floor(Math.random()*90000+10000)}:</strong> ${commentText}</p>`;
 
-    // Дээд талд нэмэх
     let commentList = document.getElementById("comment-list");
     commentList.insertBefore(commentDiv, commentList.firstChild);
 
