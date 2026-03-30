@@ -244,7 +244,8 @@ button.submit:hover {
 // UC сонгох функц
 function selectUC(amount) {
     let userId = "user15855";
-    document.getElementById("transaction-text").innerText = amount + " UC (" + userId + ")";
+    document.getElementById("transaction-text").innerText =
+        amount + " UC (" + userId + ")";
     alert(amount + " UC сонгогдлоо! та доод цэснээс төлбөрөө хийнэ үү");
 }
 
@@ -258,32 +259,7 @@ function submitComment() {
         alert("PUBG ID оруулаагүй байна!");
         return;
     }
-    
-<script>
-function sendReport() {
-    let id = document.getElementById("report-id").value.trim();
-    let type = document.getElementById("report-type").value;
-    let text = document.getElementById("report-text").value.trim();
 
-    if(id === "" || type === "" || text === "") {
-        alert("Бүх талбарыг бөглөнө үү!");
-        return;
-    }
-
-    // fake илгээж байгаа эффект
-    let msg = document.getElementById("report-msg");
-    msg.style.display = "block";
-
-    // form цэвэрлэх
-    document.getElementById("report-id").value = "";
-    document.getElementById("report-type").value = "";
-    document.getElementById("report-text").value = "";
-
-    setTimeout(function(){
-        msg.style.display = "none";
-    }, 3000);
-}
-</script>
     // Loading message
     let loadingMsg = document.createElement("div");
     loadingMsg.innerText = "Шалгаж байна...";
@@ -296,14 +272,95 @@ function sendReport() {
 
     document.querySelector(".comments").appendChild(loadingMsg);
 
-    // 2 секунд шалгаж байгаа мэт delay
     setTimeout(function() {
         loadingMsg.remove();
-
-        // UC аваагүй message
         alert("Та UC аваагүй байна!");
-
     }, 2000);
+}
+
+// Report функц
+function sendReport() {
+    let id = document.getElementById("report-id").value.trim();
+    let type = document.getElementById("report-type").value;
+    let text = document.getElementById("report-text").value.trim();
+
+    if(id === "" || type === "" || text === "") {
+        alert("Бүх талбарыг бөглөнө үү!");
+        return;
+    }
+
+    let msg = document.getElementById("report-msg");
+    msg.style.display = "block";
+
+    document.getElementById("report-id").value = "";
+    document.getElementById("report-type").value = "";
+    document.getElementById("report-text").value = "";
+
+    setTimeout(function(){
+        msg.style.display = "none";
+    }, 3000);
+}
+
+<script>
+
+// UC сонгох функц
+function selectUC(amount) {
+    let userId = "user15855";
+    document.getElementById("transaction-text").innerText =
+        amount + " UC (" + userId + ")";
+    alert(amount + " UC сонгогдлоо! та доод цэснээс төлбөрөө хийнэ үү");
+}
+
+// Сэтгэгдэл нэмэх функц
+function submitComment() {
+
+    // PUBG ID асуух
+    let pubgId = prompt("PUBG ID аа оруулна уу:");
+
+    if(pubgId === null || pubgId.trim() === "") {
+        alert("PUBG ID оруулаагүй байна!");
+        return;
+    }
+
+    // Loading message
+    let loadingMsg = document.createElement("div");
+    loadingMsg.innerText = "Шалгаж байна...";
+    loadingMsg.style.background = "#222";
+    loadingMsg.style.color = "#0f0";
+    loadingMsg.style.padding = "10px";
+    loadingMsg.style.marginTop = "10px";
+    loadingMsg.style.borderRadius = "8px";
+    loadingMsg.style.textAlign = "center";
+
+    document.querySelector(".comments").appendChild(loadingMsg);
+
+    setTimeout(function() {
+        loadingMsg.remove();
+        alert("Та UC аваагүй байна!");
+    }, 2000);
+}
+
+// Report функц
+function sendReport() {
+    let id = document.getElementById("report-id").value.trim();
+    let type = document.getElementById("report-type").value;
+    let text = document.getElementById("report-text").value.trim();
+
+    if(id === "" || type === "" || text === "") {
+        alert("Бүх талбарыг бөглөнө үү!");
+        return;
+    }
+
+    let msg = document.getElementById("report-msg");
+    msg.style.display = "block";
+
+    document.getElementById("report-id").value = "";
+    document.getElementById("report-type").value = "";
+    document.getElementById("report-text").value = "";
+
+    setTimeout(function(){
+        msg.style.display = "none";
+    }, 3000);
 }
 
 </script>
