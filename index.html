@@ -183,13 +183,34 @@ button.submit:hover {
     <p><strong>Данс:</strong> 5466571864</p>
     <p><strong>IBAN:</strong> MN490005005466571864</p>
     <p><strong>Нэр:</strong> Тэмүүлэн</p>
-    <p><strong>Гүйлгээний утга:</strong> <span id="transaction-text">UC хэмжээ (User ID)</span></p>
+    <p><strong>Гүйлгээний утга:</strong> <span id="transaction-text">UC хэмжээ (PUBG ID)</span></p>
     <p>Бид таны мөнгийг хүлээн авмагц UC-ээ таны ID-д цэнэглэнэ.</p>
 </div>
 
 <div class="help">
     <h3>Тусламж / Report</h3>
-    <p>Хэрвээ асуудал гарвал Report товчийг дарж бичнэ үү. Бид 24 цагийн дотор хариу өгнө.</p>
+    <p>Асуудал гарсан бол доорх формоор бидэнд мэдэгдэнэ үү.</p>
+
+    <input type="text" id="report-id" placeholder="PUBG ID" style="width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:none;">
+
+    <select id="report-type" style="width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:none;">
+        <option value="">Асуудал сонгох</option>
+        <option>UC орж ирээгүй</option>
+        <option>Буруу хэмжээ ирсэн</option>
+        <option>Төлбөр амжилтгүй болсон</option>
+        <option>Бусад</option>
+    </select>
+
+    <textarea id="report-text" placeholder="Дэлгэрэнгүй тайлбар бичнэ үү..." rows="3"
+    style="width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:none;"></textarea>
+
+    <button onclick="sendReport()" style="width:100%;padding:12px;background:#ff4444;color:#fff;border:none;border-radius:8px;font-weight:bold;">
+        Report илгээх
+    </button>
+
+    <div id="report-msg" style="display:none;margin-top:10px;padding:10px;background:#0f0;color:#000;border-radius:6px;text-align:center;">
+        Амжилттай илгээгдлээ!
+    </div>
 </div>
 
 <div class="comments">
@@ -237,7 +258,32 @@ function submitComment() {
         alert("PUBG ID оруулаагүй байна!");
         return;
     }
+    
+<script>
+function sendReport() {
+    let id = document.getElementById("report-id").value.trim();
+    let type = document.getElementById("report-type").value;
+    let text = document.getElementById("report-text").value.trim();
 
+    if(id === "" || type === "" || text === "") {
+        alert("Бүх талбарыг бөглөнө үү!");
+        return;
+    }
+
+    // fake илгээж байгаа эффект
+    let msg = document.getElementById("report-msg");
+    msg.style.display = "block";
+
+    // form цэвэрлэх
+    document.getElementById("report-id").value = "";
+    document.getElementById("report-type").value = "";
+    document.getElementById("report-text").value = "";
+
+    setTimeout(function(){
+        msg.style.display = "none";
+    }, 3000);
+}
+</script>
     // Loading message
     let loadingMsg = document.createElement("div");
     loadingMsg.innerText = "Шалгаж байна...";
